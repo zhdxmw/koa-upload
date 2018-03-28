@@ -1,5 +1,7 @@
 
 const Account = require('../models/account')
+const jwt = require('jsonwebtoken')
+const config = require('../config')
 
 class AccountController {
     async getUser (ctx) {
@@ -11,23 +13,32 @@ class AccountController {
             code: ''
         }
         const res = await Account.getUser()
+        // console.log(ctx.state.decoded)
         result.data = res
         result.success = true
-        ctx.body = result
+        ctx.body = result.data
     }
     async login (ctx) {
         const {
             email,
             password
-        } = ctx.request.body
+        } = ctx.request.query
         let result = {
             success: false,
             message: '',
             data: null,
             code: ''
         }
+        let token = jwt.sign({email, password}, config.secret, {
+            expiresIn: 60 * 60 * 24
+        })
         const res = await Account.Login(email, password)
-        result.data = res
+        result.data = {
+            id: res[0].id,
+            email: res[0].email,
+            user: res[0].user,
+            token: token
+        }
         result.success = true
         ctx.body = result
     }

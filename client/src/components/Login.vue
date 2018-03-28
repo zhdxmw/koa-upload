@@ -27,7 +27,8 @@ export default {
                 params: this.form
             }).then(res => {
                 if (res.success) {
-                    console.log(res)
+                    window.localStorage.setItem('token', res.data.token)
+                    localStorage.setItem('user', JSON.stringify(res.data))
                 }
             })
         }

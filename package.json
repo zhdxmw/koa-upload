@@ -16,6 +16,7 @@
     "cors": "^2.8.4",
     "element-ui": "^2.2.2",
     "glob": "^7.1.2",
+    "jsonwebtoken": "^8.2.0",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-cors": "0.0.16",

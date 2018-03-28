@@ -8,12 +8,12 @@ class Account {
     }
     async Register (email, name, password) {
         password = md5(password)
-        console.log(`insert into USER VALUES(0, '${name}', '${password}', '${email}')`)
         return await query(`insert into USER VALUES(0, '${name}', '${password}', '${email}')`)
     }
     async Login (email, password) {
         password = md5(password)
-        return await query(`select * from USER where email=${email} and password=${password}`)
+        console.log(`select * from USER where email='${email}' and password='${password}'`)
+        return await query(`select * from USER where email='${email}' and password='${password}'`)
     }
 }
 

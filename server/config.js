@@ -9,7 +9,8 @@ const config = {
         multipleStatements: true
     },
     port: 3030,
-    baseApi: 'api/up'
+    baseApi: 'api/up',
+    secret: 'token'
 }
 
 module.exports = config
