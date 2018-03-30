@@ -8,7 +8,7 @@ const config = {
         database: 'koa_file',
         multipleStatements: true
     },
-    port: 3030,
+    port: 3033,
     baseApi: 'api/up',
     secret: 'token'
 }

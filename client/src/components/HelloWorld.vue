@@ -3,6 +3,7 @@
     <h1>{{ msg }}</h1>
     <router-link :to="{name:'login'}">login</router-link>
     <router-link :to="{name:'register'}">register</router-link>
+    <router-link :to="{name:'upload'}">upload</router-link>
   </div>
 </template>
 
